@@ -1,2 +1,2 @@
-# info (markdown doc)
-oh young taek's info
+# info 
+oh young taek's (markdown doc) info
