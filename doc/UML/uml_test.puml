@@ -1,0 +1,103 @@
+@startuml
+
+title
+회사에서 일을 한다. 
+end title
+
+"사무실에 도착한다." as Act00 -[bold,#red]-> "사무실 문을 연다." as Act01 
+
+Act01 --> "자리에 앉는다." as Act02
+--> "가방에서 서랍열쇠를 꺼낸다." as Act03
+--> "열쇠를 서랍에서 노트북을 꺼낸다." as Act04
+--> "노트북을 책상에 정해진 위치에 올려놓는다." as  Act05
+--> "노트북에 전원, 모니터, 키보드, 마우스를 연결한다." as Act06
+
+Act06 --> "책상의 텀플러를 손에 쥐고 이동한다." as  Act11
+--> "사무실에 커피 머신이 있는 곳으로 이동한다." as Act12
+--> "텀플러에 얼음을 넣는다." as Act13
+--> "텀플러를 커피 머신에 올려놓는다." as Act14
+--> "커피머신의 에스프레소를 누른다." as Act15
+--> "텀플러의 커피가 내려온다." as Act16
+--> "커피머신의 추출이 끝났다." as Act17
+--> "텀플러를 가지고 사무실로 들어간다." as Act18
+--> "텀플러를 책상에 올려놓는다." as Act19
+
+Act19 --> "노트북의 전원을 키고 의자에 않는다." as Act21
+--> "노트북 로그인을 한다." as Act22
+--> "크롬 브라우저를 띄운다." as Act23
+--> "크롬에는 이전에 띄운 기록이 있어 어제 마지막 창을 확인한다." as Act24
+--> "모니터링 하는 화면들을 연다." as Act25
+--> "모니터링 이상이 없는지 확인한다." as Act26
+--> "오늘 할 일을 확인힌다." as Act27
+--> "업무를 진행한다." as Act28
+
+Act28 -[bold,#red]-> "퇴근시간을 확인하고 퇴근준비를 한다." as Act31
+--> "텀블러는 씻으러 나간다." as Act32
+--> "텀블러를 씻고 자리로 돌아온다." as Act33
+--> "텀블러를 꽂이에 올려놓는다." as Act34
+--> "일일업무보고를 기록한다." as Act35
+--> "노트북의 전원을 끈고 연결된 선을 뺀다." as Act36
+--> "노트북을 케이스에 넣고 서랍에 넣는다." as Act37
+--> "서랍을 열쇠로 잠근다." as Act38
+-[bold,#red]-> "열쇠를 가방에 넣는다." as Act39
+
+Act39 -[bold,#red]-> "사무실로 나간다." as Act41
+
+Act01 -right[bold,#red]-> Act06
+Act06 -right[bold,#red]-> Act21
+Act21 -right[bold,#red]-> Act28
+Act31 -right[bold,#red]-> Act38
+
+Act01 -left[#blue]-> "재실센서01" as Occupy01
+Act02 -[#blue]-> "재실센서02" as Occupy02
+
+Act03 -[#blue]-> "서랍01" as Locker01
+
+Act05 -[#blue]-> "전원01" as Power01
+Act05 -[#blue]-> "전원02" as Power02
+
+Act11 -[#blue]-> Occupy02
+
+Act12 -[#blue]-> "카메라11" as Camera11
+
+Act14 -[#blue]-> "접근센서11" as Occupy11
+
+Act15 -[#blue]-> "움직임11" as Run11
+Act17 -[#blue]-> "움직임11" as Run11
+
+Act18 -[#blue]-> Occupy01
+
+Act21 -[#blue]-> Occupy02
+
+Act22 -[#blue]-> "카메라01" as Camera01
+Act22 -[#blue]-> "접근센서03" as Occupy03
+Act22 -[#blue]-> "자동실행01" as AutoRun01
+Act23 -[#blue]-> AutoRun01
+Act25 -[#blue]-> AutoRun01
+Act27 -[#blue]-> AutoRun01
+
+Act31 -[#blue]-> "시간측정01" as CheckTime01
+Act31 -[#blue]-> "자동실행02" as AutoRun02
+
+Act32 -[#blue]-> Occupy01
+Act33 -[#blue]-> Occupy01
+
+Act35 -[#blue]-> AutoRun02
+
+Act38 -[#blue]-> Locker01
+Act38 -[#blue]-> Power01
+Act38 -[#blue]-> Power02
+
+Act41 -left[#blue]-> Occupy01
+
+
+Act21 -[#green]-> "카메라02" as Camera02
+-[#green]-> "가상환경 연결" as VMconnect01
+
+Occupy02 -[#green]-> VMconnect01
+
+AutoRun02 -[#green]-> VMconnect01
+Locker01 -[#green]-> VMconnect01
+Occupy01 -[#green]-> VMconnect01
+
+@enduml
