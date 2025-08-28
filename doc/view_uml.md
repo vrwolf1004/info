@@ -1,1 +1,1 @@
-![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://github.com/vrwolf1004/info/blob/main/doc/uml_test.puml)
+![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/vrwolf1004/info/blob/main/doc/uml_test.puml)
