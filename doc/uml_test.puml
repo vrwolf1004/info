@@ -1,5 +1,4 @@
-
-```plantuml
+@startuml
 
 title
 회사에서 일을 한다. 
@@ -101,4 +100,4 @@ AutoRun02 -[#green]-> VMconnect01
 Locker01 -[#green]-> VMconnect01
 Occupy01 -[#green]-> VMconnect01
 
-```
+@enduml
