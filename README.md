@@ -4,4 +4,4 @@
 - I live in Seoul
 - I graduated from the Department of Electrical Engineering
 
-# [career](https://github.com/vrwolf1004/info/blob/main/career.md)
+# [career](./career.md)
