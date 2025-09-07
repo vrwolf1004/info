@@ -46,9 +46,9 @@ Docker Compose version [최신버전]
 #### 사용자 권한 추가 (중요!!)
 ``` shell
 #사용자 추가
-adduser atensys
+adduser company
 #ql
-passwd atensys
+passwd company
 
 
 sudo usermod -aG docker {사용자명}
@@ -62,7 +62,7 @@ vi /etc/sudoers
 
 	root    ALL=(ALL)     ALL
 	#아래 추가
-    atensys ALL=(ALL)     ALL
+    company ALL=(ALL)     ALL
 ```  
 #### portainer 
 ``` shell
@@ -240,7 +240,7 @@ jupyter server list
 	- Currently running servers:
 	- http://ee13a4c57eec:8888/?token=6d1ae138a895417c3a437558b670499a71d773ebc3fb979e :: /home/jovyan
 		- token 	: 6d1ae138a895417c3a437558b670499a71d773ebc3fb979e
-		- new pwd 	: 26766498
+		- new pwd 	: 12345678
 
 - svn checkout 시 선행작업
 ```shell
@@ -288,7 +288,7 @@ docker run -p 8080:8080 \
 docker run -d -p 5672:5672 -p 15672:15672 \
 	--hostname aten-rabbit \
 	-e RABBITMQ_DEFAULT_USER=aten \
-	-e RABBITMQ_DEFAULT_PASS=028623360 \
+	-e RABBITMQ_DEFAULT_PASS=12345678 \
 	--restart=always \
 	--name aten_rabbitmq \
 	rabbitmq:management
@@ -404,7 +404,7 @@ docker run -d -p 3000:3000 \
 	-e REDMINE_DB_PORT=5432 \
 	-e REDMINE_DB_DATABASE=redmine \
 	-e REDMINE_DB_USERNAME=postgres \
-	-e REDMINE_DB_PASSWORD=028623360 \
+	-e REDMINE_DB_PASSWORD=12345678 \
 	--restart=always \
 	--name redmine \
 	redmine
@@ -412,7 +412,7 @@ docker run -d -p 3000:3000 \
 ```
 - sqlite3 백업 : container내 /usr/src/redmine/sqlite
 - /my/own/datadir:/usr/src/redmine/files
-- 3000 포트추가후 > 192.168.0.131:3000 > admin/admin  > 패스워드 변경 028623360
+- 3000 포트추가후 > 192.168.0.131:3000 > admin/admin  > 패스워드 변경 12345678
 
 
 
