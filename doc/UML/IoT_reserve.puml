@@ -1,0 +1,63 @@
+@startuml
+
+title
+check IoT state 
+end title
+
+"환경 제어 설정 " as IoTSetting #SkyBlue -[bold,#red]-> "IoT 센서 자료 수집" as checkSensor #Orange
+
+checkSensor -[bold,#red]-> "외부 광원 확인" as checkSun
+--> "쾌청하다" as sunGood
+--> outLuxTxt
+checkSun --> "보통" as sunNormal
+--> outLuxTxt
+checkSun --> "흐리다" as sunBad
+--> outLuxTxt
+
+checkSensor -[bold,#red]-> "내부 조도 확인" as checkLux
+--> "좋다" as luxGood
+--> inLuxTxt
+checkLux --> "보통" as luxNormal
+--> inLuxTxt
+checkLux --> "나쁘다" as luxBad
+--> inLuxTxt
+
+checkSensor -[bold,#red]-> "재실 확인" as checkPresence
+--> "자리에 있다" as presence
+--> seatOn
+checkPresence --> "자리에 없다" as empty
+--> seatOn
+
+"구동 장비" as actDevice #SkyBlue --> "커튼" as curtain
+actDevice --> "전원" as power
+actDevice --> "조명" as inLight
+actDevice --> "문 개폐" as inDoor
+actDevice --> "빔스크린" as inScreen
+
+outLuxTxt ..> curtain
+-[bold,#red]-> openCurtain
+curtain -[bold,#red]-> closeCurtain #Orange
+
+inLuxTxt ..> curtain
+
+seatOn ..> actDevice
+
+power -[bold,#red]-> on #Orange
+power -[bold,#red]-> off
+
+inLight -[bold,#red]-> light on #Orange
+inLight -[bold,#red]-> light off
+
+inDoor -[bold,#red]-> door on #Orange
+inDoor -[bold,#red]-> door off
+
+inScreen -[bold,#red]-> screen down #Orange
+inScreen -[bold,#red]-> screen up
+
+"회의실 예약 정보" as reserveInfo #Orange --> "예약 있음" as ReservedRoom #Orange
+--> actDevice
+
+reserveInfo --> "예약 없음" as EmptyRoom
+--> actDevice
+
+@enduml
